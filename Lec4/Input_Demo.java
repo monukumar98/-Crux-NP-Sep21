@@ -8,7 +8,8 @@ public class Input_Demo {
 		int i = sc.nextInt();
 		long l = sc.nextLong();
 		float f=3.9f;
-
+       double d=78.6565;
+       boolean b = true;
 	}
 
 }
