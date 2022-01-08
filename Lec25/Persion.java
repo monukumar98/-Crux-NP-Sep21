@@ -17,7 +17,7 @@ public class Persion {
 	}
 
 	public void setAge(int age) {
-		if(age<0) {
+		if (age < 0) {
 			return;
 		}
 		this.age = age;
