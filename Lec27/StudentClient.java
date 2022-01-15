@@ -11,7 +11,7 @@ public class StudentClient {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		System.out.println(list);
 		
-
+		
 	}
 
 }
