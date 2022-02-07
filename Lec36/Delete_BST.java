@@ -32,9 +32,9 @@ public class Delete_BST {
 				return null;
 			}
 			if (root.val > key) {
-			return	root.left = delete(root.left, key);
+				root.left = delete(root.left, key);
 			} else if (root.val < key) {
-				return root.right = delete(root.right, key);
+			 root.right = delete(root.right, key);
 			}
 
 			else {
@@ -51,6 +51,7 @@ public class Delete_BST {
 				}
 
 			}
+			return root;
 			
 
 		}
