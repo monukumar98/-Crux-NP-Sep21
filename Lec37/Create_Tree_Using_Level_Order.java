@@ -1,8 +1,5 @@
 package Lec37;
 
-import java.awt.geom.CubicCurve2D;
-import java.util.LinkedList;
-import java.util.Scanner;
 
 public class Create_Tree_Using_Level_Order {
 	private class Node {
