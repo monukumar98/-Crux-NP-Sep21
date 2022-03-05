@@ -1,6 +1,6 @@
 package Lec43;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class Graph {
 
@@ -63,6 +63,104 @@ public class Graph {
 		for (int key : map.keySet()) {
 			System.out.println(key + " --> " + map.get(key));
 		}
+	}
+
+	public boolean HashPath(int src, int dis, HashSet<Integer> visited) {
+		if (src == dis) {
+			return true;
+		}
+		visited.add(src);
+
+		for (int key : map.get(src).keySet()) {
+			if (!visited.contains(key)) {
+				boolean res = HashPath(key, dis, visited);
+				if (res) {
+					return res;
+				}
+			}
+		}
+		visited.remove(src);
+		return false;
+	}
+
+	public void PrintallPath(int src, int dis, HashSet<Integer> visited, String ans) {
+		visited.add(src);
+		if (src == dis) {
+
+			System.out.println(ans + src);
+
+		}
+
+		for (int key : map.get(src).keySet()) {
+			if (!visited.contains(key)) {
+				PrintallPath(key, dis, visited, ans + src + " ");
+
+			}
+		}
+		visited.remove(src);
+
+	}
+
+	public boolean BFS(int src, int dis) {
+		HashSet<Integer> visited = new HashSet<>();
+		LinkedList<Integer> queue = new LinkedList<>();
+		queue.add(src);
+		while (!queue.isEmpty()) {
+			// remove
+			int rv = queue.remove();
+
+			// Ignore if already visited
+			if (visited.contains(rv)) {
+				continue;
+			}
+			// src==dis
+			if (rv == dis) {
+				return true;
+			}
+			// marked visited
+			visited.add(rv);
+			// nbrs
+			for (int key : map.get(rv).keySet()) {
+				if (!visited.contains(key)) {
+					queue.add(key);
+				}
+
+			}
+
+		}
+		return false;
+
+	}
+
+	public boolean DFS(int src, int dis) {
+		HashSet<Integer> visited = new HashSet<>();
+		Stack<Integer> stack = new Stack<>();
+		stack.push(src);
+		while (!stack.isEmpty()) {
+			// remove
+			int rv = stack.pop();
+
+			// Ignore if already visited
+			if (visited.contains(rv)) {
+				continue;
+			}
+			// src==dis
+			if (rv == dis) {
+				return true;
+			}
+			// marked visited
+			visited.add(rv);
+			// nbrs
+			for (int key : map.get(rv).keySet()) {
+				if (!visited.contains(key)) {
+					stack.push(key);
+				}
+
+			}
+
+		}
+		return false;
+
 	}
 
 }

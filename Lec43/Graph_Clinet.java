@@ -1,5 +1,7 @@
 package Lec43;
 
+import java.util.HashSet;
+
 public class Graph_Clinet {
 
 	public static void main(String[] args) {
@@ -13,9 +15,12 @@ public class Graph_Clinet {
 		g.addedge(5, 6, 3);
 		g.addedge(5, 7, 2);
 		g.addedge(6, 7, 7);
-		//g.removeVertx(4);
-		g.Display();
-
+		// g.removeVertx(4);
+		// g.Display();
+		System.out.println(g.HashPath(1, 7, new HashSet<>()));
+	//	g.PrintallPath(1, 7, new HashSet<>(),"");
+		System.out.println(g.BFS(1, 7));
+		System.out.println(g.DFS(1, 7));
 	}
 
 }
