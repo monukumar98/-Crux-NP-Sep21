@@ -1,5 +1,6 @@
 package Lec44;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -158,6 +159,43 @@ public class Graph_2 {
 			}
 		}
 		return count == 1;
+
+	}
+
+	public ArrayList<ArrayList<Integer>> GetAllConnectedComponent() {
+		HashSet<Integer> visited = new HashSet<>();
+		Stack<Integer> stack = new Stack<>();
+		ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+		for (int src : map.keySet()) {
+			if (visited.contains(src)) {
+				continue;
+			}
+			ArrayList<Integer> list = new ArrayList<>();
+			stack.push(src);
+			while (!stack.isEmpty()) {
+				// remove
+				int rv = stack.pop();
+
+				// Ignore if already visited
+				if (visited.contains(rv)) {
+					continue;
+				}
+				// add
+				list.add(rv);
+				// marked visited
+				visited.add(rv);
+				// nbrs
+				for (int key : map.get(rv).keySet()) {
+					if (!visited.contains(key)) {
+						stack.push(key);
+					}
+
+				}
+
+			}
+			ans.add(list);
+		}
+		return ans;
 
 	}
 

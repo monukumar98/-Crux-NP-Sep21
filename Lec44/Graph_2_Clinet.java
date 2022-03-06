@@ -15,10 +15,12 @@ public class Graph_2_Clinet {
 		g.addedge(5, 6, 3);
 		g.addedge(5, 7, 2);
 		g.addedge(6, 7, 7);
+		
 		g.BFT();
 		g.DFT();
 		System.out.println(g.IsCycle());
 		System.out.println(g.IsConnected());
+		System.out.println(g.GetAllConnectedComponent());
 	}
 
 }
